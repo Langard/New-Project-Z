@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obsidian для начинающих писать свои заметки — курс OBSIDIAN BASE</title>
+<meta name="description" content="Практический онлайн-курс по Obsidian: превращаем хаос из 300 заметок в систему, из системы — посты и статьи. Для новичков, копирайтеров, SMM-щиков и студентов. 4 недели, живая практика.">
+<meta name="theme-color" content="#08060f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%237c3aed'/><path d='M9 23l7-16 7 16h-3.8L16 14.4 12.8 23z' fill='%23fff'/></svg>">
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<div class="bg" aria-hidden="true">
+  <span class="bg__blob bg__blob--1"></span>
+  <span class="bg__blob bg__blob--2"></span>
+  <span class="bg__blob bg__blob--3"></span>
+  <span class="bg__blob bg__blob--4"></span>
+  <span class="bg__grid"></span>
+  <span class="bg__noise"></span>
+</div>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<a class="skip" href="#hero">К основному содержанию</a>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="wrap header__row">
+    <a href="#hero" class="logo">
+      <span class="logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5.6 18.6 12 4.4l6.4 14.2h-3.5L12 11.6l-2.9 7z" fill="currentColor"/></svg>
+      </span>
+      <span class="logo__txt">OBSIDIAN<em>BASE</em></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Основная навигация">
+      <a href="#problem">Проблема</a>
+      <a href="#audience">Кому</a>
+      <a href="#program">Программа</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#faq">FAQ</a>
+      <a href="#lead" class="btn btn--primary btn--sm nav__cta">Забронировать место</a>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
+      <i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="wrap hero__grid">
+
+    <div class="hero__copy">
+      <span class="badge reveal">
+        <span class="badge__pulse"></span>
+        Поток 12 · старт 14 октября
+      </span>
+
+      <h1 class="hero__title">
+        <span class="reveal" style="--d:.05s">Превращаем хаос заметок</span>
+        <span class="reveal grad-text" style="--d:.15s">в<span class="rotator" id="rotator">
+            <span class="rotator__item is-active">свои посты</span>
+            <span class="rotator__item">статьи</span>
+            <span class="rotator__item">свою базу знаний</span>
+            <span class="rotator__item">контент-план</span>
+          </span></span>
+        <span class="reveal" style="--d:.25s">с нуля и без кода</span>
+      </h1>
+
+      <p class="hero__lead reveal" style="--d:.35s">
+        Obsidian даёт свободу: любые заметки, любые связи, любой уровень безумия.
+        На курсе мы превращаем её в рабочую систему, из которой выходят посты, статьи
+        и контент-план — за 4 недели практики.
+      </p>
+
+      <div class="hero__cta reveal" style="--d:.45s">
+        <a href="#lead" class="btn btn--primary btn--lg magnetic">
+          Начать бесплатно
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#program" class="btn btn--glass btn--lg">Программа за 40 секунд</a>
+      </div>
+
+      <div class="hero__trust reveal" style="--d:.55s">
+        <div class="hero__avatars" aria-hidden="true">
+          <span>АК</span><span>ИС</span><span>МЛ</span><span>ДК</span><span>+</span>
+        </div>
+        <div class="hero__trustTxt">
+          <div class="stars" aria-label="Оценка 4,9 из 5">★★★★★</div>
+          <p>1 240 человек уже пишут в Obsidian</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="orbit">
+        <span class="orbit__ring orbit__ring--1"></span>
+        <span class="orbit__ring orbit__ring--2"></span>
+        <span class="orbit__ring orbit__ring--3"></span>
+
+        <div class="appCard float-slow">
+          <div class="appCard__bar">
+            <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+            <em>vault / obsidian</em>
+          </div>
+          <div class="appCard__body">
+            <div class="rail">
+              <span class="rail__i is-on">00 Входящие</span>
+              <span class="rail__i">10 Идеи</span>
+              <span class="rail__i">20 Черновики</span>
+              <span class="rail__i">30 Опубликовано</span>
+              <span class="rail__i rail__i--tag">#мысли</span>
+              <span class="rail__i rail__i--tag">#черновик</span>
+            </div>
+            <div class="note">
+              <div class="note__h">Связки, которые экономят 2 часа в неделю</div>
+              <div class="note__props">
+                <span>status: draft</span><span>tags: [writing]</span>
+              </div>
+              <div class="note__l w88"></div>
+              <div class="note__l w64"></div>
+              <div class="note__link"><b>[[Идея]]</b> → [[Черновик]] → [[Пост]]</div>
+              <div class="note__l w76"></div>
+              <div class="note__l w42"></div>
+              <div class="note__tags"><i>#writing</i><i>#obsidian</i><i>#publish</i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="miniCard float-rev miniCard--a">
+          <span class="miniCard__ic">✦</span>
+          <b>Граф связей</b>
+          <small>312 заметок · 0 потерянных</small>
+        </div>
+        <div class="miniCard float-rev miniCard--b">
+          <span class="miniCard__ic miniCard__ic--mint">↗</span>
+          <b>+ 1 пост в неделю</b>
+          <small>по шаблону, без страха чистого листа</small>
+        </div>
+        <div class="pillCard float-fast">
+          <i class="pillCard__dot"></i> заметка связана автоматически
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__metrics wrap">
+    <div class="metric reveal">
+      <b data-count="300" data-suffix="+">0</b>
+      <span>заметок в системе</span>
+    </div>
+    <div class="metric reveal" style="--d:.1s">
+      <b data-count="4" data-suffix=" недели">0</b>
+      <span>практики с заданиями</span>
+    </div>
+    <div class="metric reveal" style="--d:.2s">
+      <b data-count="28" data-suffix=" уроков">0</b>
+      <span>видео и разборы</span>
+    </div>
+    <div class="metric reveal" style="--d:.3s">
+      <b data-count="0" data-suffix=" строк кода">0</b>
+      <span>для старта</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__row">
+    <div class="marquee__set">
+      <span>БАЗА ЗНАНИЙ</span><i>✦</i><span>СВЯЗКИ [[ ]]</span><i>✦</i><span>ШАБЛОНЫ</span><i>✦</i><span>КОНТЕНТ-ПЛАН</span><i>✦</i><span>ЕЖЕДНЕВНИК</span><i>✦</i><span>ПУБЛИКАЦИЯ</span><i>✦</i><span>БЕЗ ХАОСА</span><i>✦</i>
+    </div>
+    <div class="marquee__set">
+      <span>БАЗА ЗНАНИЙ</span><i>✦</i><span>СВЯЗКИ [[ ]]</span><i>✦</i><span>ШАБЛОНЫ</span><i>✦</i><span>КОНТЕНТ-ПЛАН</span><i>✦</i><span>ЕЖЕДНЕВНЫК</span><i>✦</i><span>ПУБЛИКАЦИЯ</span><i>✦</i><span>БЕЗ ХАОСА</span><i>✦</i>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="head">
+      <span class="chipLabel reveal">Знакомо?</span>
+      <h2 class="title reveal" style="--d:.08s">Заметки есть.<br><span class="grad-text">Текстов — нет</span></h2>
+      <p class="lead reveal" style="--d:.16s">
+        Obsidian не спасает сам. Он показывает каждый ваш беспорядок честнее, чем любое другое приложение.
+        Мы за 4 недели превращаем кладбище файлов в движок, который сам подсказывает, о чём писать.
+      </p>
+    </div>
+
+    <div class="switcher reveal" style="--d:.2s">
+      <div class="switcher__tabs" role="tablist" aria-label="До и после курса">
+        <button class="switcher__tab is-on" role="tab" aria-selected="true" data-panel="before">До курса</button>
+        <button class="switcher__tab" role="tab" aria-selected="false" data-panel="after">После курса</button>
+      </div>
+
+      <div class="switcher__body">
+        <ul class="painList is-on" data-name="before">
+          <li><b>412 файлов, ни одна не находится</b><span>Папки «Новое», «Разное», «Идея 2 — финал»</span></li>
+          <li><b>Одно и то же в трёх местах</b><span>Дубль заметки, потому что забыли прошлый раз</span></li>
+          <li><b>Идеи живут в голове</b><span>Она «почти готова» второй месяц</span></li>
+          <li><b>Каждый пост с нуля</b><span>40 минут на пустой странице</span></li>
+          <li><b>Страх начать</b><span>Открываешь базу — и закрываешь</span></li>
+        </ul>
+
+        <ul class="painList" data-name="after">
+          <li><b>Структура из 4 зон</b><span>Входящие · Проекты · Архив · Источники</span></li>
+          <li><b>Одна мысль — одна заметка</b><span>Остальные приходят через [[связки]]</span></li>
+          <li><b>Банк идей на 3 месяца вперёд</b><span>Каждая идея с датой и статусом</span></li>
+          <li><b>Пост из своей базы за 30 минут</b><span>По шаблону, который уже проверен</span></li>
+          <li><b>Привычка, а не рывок</b><span>20 минут в день без надзора</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDIENCE ============ -->
+<section class="section section--glass" id="audience">
+  <div class="wrap">
+    <div class="head head--center">
+      <span class="chipLabel reveal">Кому подойдёт</span>
+      <h2 class="title reveal" style="--d:.08s">Четыре причины<br><span class="grad-text">прийти на курс</span></h2>
+    </div>
+
+    <div class="audGrid" id="audGrid">
+      <article class="aud reveal tilt">
+        <div class="aud__glow"></div>
+        <span class="aud__num">01</span>
+        <h3>Новичкам</h3>
+        <p>Вы никогда не работали с markdown и базами знаний. Начинаем с установки и первой заметки — объясняем так, что понятно сразу.</p>
+        <ul class="aud__list"><li>Старт с нуля</li><li>Без терминала и кода</li><li>Готовые шаблоны</li></ul>
+      </article>
+
+      <article class="aud reveal tilt" style="--d:.08s">
+        <div class="aud__glow"></div>
+        <span class="aud__num">02</span>
+        <h3>Копирайтерам</h3>
+        <p>Собираешь фрагменты, кейсы и цитаты годами, но они не складываются в тексты. После курса каждая находка становится абзацем статьи.</p>
+        <ul class="aud__list"><li>Банк формулировок</li><li>Связки вместо дублей</li><li>Экспорт в любой формат</li></ul>
+      </article>
+
+      <article class="aud reveal tilt" style="--d:.16s">
+        <div class="aud__glow"></div>
+        <span class="aud__num">03</span>
+        <h3>SMM-щикам</h3>
+        <p>20 постов в месяц не должны рождаться из головы. Строим контент-рубрики и доску идей, которую не приходится каждый раз воображать заново.</p>
+        <ul class="aud__list"><li>Контент-план в базе</li><li>Переиспользование идей</li><li>Публикация в один клик</li></ul>
+      </article>
+
+      <article class="aud reveal tilt" style="--d:.24s">
+        <div class="aud__glow"></div>
+        <span class="aud__num">04</span>
+        <h3>Студентам</h3>
+        <p>Лекции, конспекты, статьи и цитаты в одной базе. Экзамен перестаёт начинаться с тревоги, а подготовка превращается в повторение своих же заметок.</p>
+        <ul class="aud__list"><li>Конспекты и MOC-карты</li><li>Поиск за секунды</li><li>Сдача без паники</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS BENTO ============ -->
+<section class="section" id="result">
+  <div class="wrap">
+    <div class="head">
+      <span class="chipLabel reveal">Что изменится</span>
+      <h2 class="title reveal" style="--d:.08s">Результат<br><span class="grad-text">в вашей базе</span></h2>
+      <p class="lead reveal" style="--d:.16s">Каждый пункт — это конкретный файл или привычка, а не обещание «научиться пользоваться программой».</p>
+    </div>
+
+    <div class="bento">
+      <div class="bento__i bento__i--lg reveal tilt">
+        <div class="bento__glow"></div>
+        <h3>Личная база знаний, которая живёт годами</h3>
+        <p>Ваши файлы в вашем хранилище: их можно перенести куда угодно, они не исчезнут при отмене подписки и не зависят от чужой дороги.</p>
+        <div class="bento__viz">
+          <span>идея</span><i>→</i><span>источник</span><i>→</i><span>черновик</span><i>→</i><span class="is-hot">пост</span>
+        </div>
+      </div>
+
+      <div class="bento__i reveal tilt" style="--d:.08s">
+        <div class="bento__glow"></div>
+        <h3>Связки вместо 400 дублей</h3>
+        <p>Одна идея — один файл. Остальные тексты ссылаются на него, а не повторяют его.</p>
+      </div>
+
+      <div class="bento__i reveal tilt" style="--d:.12s">
+        <div class="bento__glow"></div>
+        <h3>9 шаблонов под ваши сценарии</h3>
+        <p>Идея, черновик, источник, обзор, пост, ритм недели, ретро, встреча, карточка в базу.</p>
+      </div>
+
+      <div class="bento__i bento__i--wide reveal tilt" style="--d:.16s">
+        <div class="bento__glow"></div>
+        <h3>Ритм 20 минут в день</h3>
+        <p>Система дневника и еженедельного обзора, после которого идеи не теряются, а заметки не копятся «на потом».</p>
+        <div class="week" id="week">
+          <span class="is-on">Пн<i>✓</i></span><span class="is-on">Вт<i>✓</i></span>
+          <span>Ср<i>✓</i></span><span class="is-on">Чт<i>✓</i></span>
+          <span>Пт<i>·</i></span><span class="is-on">Сб<i>✓</i></span><span>Вс<i>·</i></span>
+        </div>
+      </div>
+
+      <div class="bento__i reveal tilt" style="--d:.2s">
+        <div class="bento__glow"></div>
+        <h3>AI как второй редактор</h3>
+        <p>Черновик, саммари, проверка фактов и стиль — внутри Obsidian, с вашими промптами в заметке.</p>
+      </div>
+
+      <div class="bento__i reveal tilt" style="--d:.24s">
+        <div class="bento__glow"></div>
+        <h3>Публикация без боли</h3>
+        <p>Экспорт, свой канал, рассылка. Статья выходит по ссылке в тот же день, когда дописана.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAM ============ -->
+<section class="section section--glass" id="program">
+  <div class="wrap wrap--narrow">
+    <div class="head head--center">
+      <span class="chipLabel reveal">Программа</span>
+      <h2 class="title reveal" style="--d:.08s">4 недели · <span class="grad-text">8 модулей</span> · 28 уроков</h2>
+      <p class="lead lead--center reveal" style="--d:.16s">Доступ к урокам открывается сразу. Каждый модуль заканчивается работающим файлом в вашем хранилище.</p>
+    </div>
+
+    <ol class="timeline" id="timeline">
+      <li class="tl reveal">
+        <div class="tl__mark"><span>01</span></div>
+        <div class="tl__card tilt">
+          <div class="tl__meta">Неделя 1 · 4 урока</div>
+          <h3>Ставим Obsidian по-взрослому</h3>
+          <p>Установка, интерфейс, режим редактирования, что такое vault и почему ваш синхронизируется по-разному.</p>
+          <div class="tl__tags"><i>установка</i><i>настройка</i><i>первая база</i></div>
+        </div>
+      </li>
+      <li class="tl reveal">
+        <div class="tl__mark"><span>02</span></div>
+        <div class="tl__card tilt">
+          <div class="tl__meta">Неделя 1 · 4 урока</div>
+          <h3>Порядок в хранилище</h3>
+          <p>Четыре зоны, входящий ящик, имена файлов, даты. Структура, которая через полгода не превратится в свалку.</p>
+          <div class="tl__tags"><i>структура</i><i>входящие</i><i>чистка</i></div>
+        </div>
+      </li>
+      <li class="tl reveal">
+        <div class="tl__mark"><span>03</span></div>
+        <div class="tl__card tilt">
+          <div class="tl__meta">Неделя 2 · 4 урока</div>
+          <h3>Связки и граф</h3>
+          <p>Синтаксис [[ссылки]], вставки, MOC-страницы. Учимся видеть путь мысли и находить «сирот» в графе.</p>
+          <div class="tl__tags"><i>[[связки]]</i><i>MOC</i><i>граф</i></div>
+        </div>
+      </li>
+      <li class="tl reveal">
+        <div class="tl__mark"><span>04</span></div>
+        <div class="tl__card tilt">
+          <div class="tl__meta">Неделя 2 · 3 урока</div>
+          <h3>Метаданные и статусы</h3>
+          <p>Идея → черновик → готово → опубликовано. Теги, свойства, списки задач, автосоздание заметок по шаблону.</p>
+          <div class="tl__tags"><i>статусы</i><i>теги</i><i>properties</i></div>
+        </div>
+      </li>
+      <li class="tl reveal">
+        <div class="tl__mark"><span>05</span></div>
+        <div class="tl__card tilt">
+          <div class="tl__meta">Неделя 3 · 4 урока</div>
+          <h3>Плагины: 12 нужных</h3>
+          <p>Календарь, таблицы, задачи, динамические списки, обзорные панели. И правило: не ставим лишнего.</p>
+          <div class="tl__tags"><i>dataview</i><i>templater</i><i>календарь</i></div>
+        </div>
+      </li>
+      <li class="tl reveal">
+        <div class="tl__mark"><span>06</span></div>
+        <div class="tl__card tilt">
+          <div class="tl__meta">Неделя 3 · 3 урока</div>
+          <h3>AI как второй редактор</h3>
+          <p>Где нейросеть помогает, а где портит голос. Промпты, саммари источников, проверка фактов.</p>
+          <div class="tl__tags"><i>промпты</i><i>фактчекинг</i><i>стиль</i></div>
+        </div>
+      </li>
+      <li class="tl reveal">
+        <div class="tl__mark"><span>07</span></div>
+        <div class="tl__card tilt">
+          <div class="tl__meta">Неделя 4 · 3 урока</div>
+          <h3>От заметки к посту</h3>
+          <p>Метод: идея → план → черновик → редактура. Собираем текст из ваших же заметок, не выдумывая факты.</p>
+          <div class="tl__tags"><i>структура</i><i>черновик</i><i>редактура</i></div>
+        </div>
+      </li>
+      <li class="tl reveal">
+        <div class="tl__mark"><span>08</span></div>
+        <div class="tl__card tilt">
+          <div class="tl__meta">Неделя 4 · 3 урока</div>
+          <h3>Публикация и свой канал</h3>
+          <p>Экспорт в PDF и HTML, свой канал и домен, рассылка, план публикаций на месяц вперёд.</p>
+          <div class="tl__tags"><i>экспорт</i><i>канал</i><i>план</i></div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ TEACHERS ============ -->
+<section class="section" id="team">
+  <div class="wrap">
+    <div class="head head--center">
+      <span class="chipLabel reveal">Кто ведёт</span>
+      <h2 class="title reveal" style="--d:.08s">Люди, которые<br><span class="grad-text">пишут каждый день</span></h2>
+    </div>
+
+    <div class="team">
+      <article class="person reveal tilt">
+        <div class="person__top">
+          <div class="person__ava">АК</div>
+          <div class="person__stats"><b>120</b><span>статей</span><b>600+</b><span>заметок</span></div>
+        </div>
+        <h3>Анна Ковалёва</h3>
+        <p class="person__role">Автор курса · редактор</p>
+        <p>Девять лет пишет про продукты и технологии. Ведёт канал о письменной практике и знает, как выглядит застрявший автор изнутри.</p>
+        <div class="person__tags"><i>структура текста</i><i>редактура</i><i>привычки</i></div>
+      </article>
+
+      <article class="person reveal tilt" style="--d:.1s">
+        <div class="person__top">
+          <div class="person__ava person__ava--2">ИС</div>
+          <div class="person__stats"><b>10</b><span>лет в dev</span><b>500</b><span>человек в базе</span></div>
+        </div>
+        <h3>Илья Серов</h3>
+        <p class="person__role">Инженер по знаниям</p>
+        <p>Десять лет в разработке и документации. Строит базы знаний для команд от пяти до пятисот человек и объясняет техническое человеческим языком.</p>
+        <div class="person__tags"><i>связки</i><i>структура</i><i>автоматизация</i></div>
+      </article>
+
+      <article class="person reveal tilt" style="--d:.2s">
+        <div class="person__top">
+          <div class="person__ava person__ava--3">МЛ</div>
+          <div class="person__stats"><b>400+</b><span>разборов</span><b>4,9</b><span>оценка</span></div>
+        </div>
+        <h3>Мария Литвинова</h3>
+        <p class="person__role">Куратор практики</p>
+        <p>Провела больше четырёхсот разборов заметок. Отвечает за обратную связь, созвоны и помощь с первой публикацией.</p>
+        <div class="person__tags"><i>разборы</i><i>созвоны</i><i>публикация</i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section section--glass" id="reviews">
+  <div class="wrap">
+    <div class="head">
+      <span class="chipLabel reveal">Отзывы</span>
+      <h2 class="title reveal" style="--d:.08s">Что говорят <span class="grad-text">после потока</span></h2>
+      <p class="lead reveal" style="--d:.16s">4,9 из 5 по 312 отзывам. Ниже — реальные истории, где на входе был хаос.</p>
+    </div>
+
+    <div class="revGrid">
+      <article class="rev reveal tilt">
+        <div class="rev__stars">★★★★★</div>
+        <p>Два года лежал список идей на 400 пунктов. Я открывал Obsidian и закрывал. Сейчас — 68 заметок по шаблону, 5 опубликованных постов и предсказуемый понедельник без боя за главную страницу.</p>
+        <div class="rev__who"><b>Дмитрий К.</b><span>маркетолог · Екатеринбург</span></div>
+      </article>
+      <article class="rev reveal tilt" style="--d:.08s">
+        <div class="rev__stars">★★★★★</div>
+        <p>Как копирайтер я годами собирала формулировки в папку «misc». Теперь у меня база цитат и кейсов с тегами, и сборка текста занимает минуты, а не вечера.</p>
+        <div class="rev__who"><b>Ольга Р.</b><span>копирайтер · Казань</span></div>
+      </article>
+      <article class="rev reveal tilt" style="--d:.16s">
+        <div class="rev__stars">★★★★★</div>
+        <p>СMM-щикам особенно зашло про контент-план: он живёт в базе, а не в заметках телефона. За месяц перестал придумывать рубрики по пятницам вечером.</p>
+        <div class="rev__who"><b>Артём С.</b><span>SMM · Москва</span></div>
+      </article>
+      <article class="rev reveal tilt" style="--d:.24s">
+        <div class="rev__stars">★★★★★</div>
+        <p>Как студент я сдал сессию спокойнее всех в группе: конспекты связаны, нашёл нужное за секунду вместо листания папок. Идеальная подготовка к экзамену — это просто повторение своих же заметок.</p>
+        <div class="rev__who"><b>Лена В.</b><span>студентка · Пермь</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="head head--center">
+      <span class="chipLabel reveal">Тарифы</span>
+      <h2 class="title reveal" style="--d:.08s">Выберите <span class="grad-text">свою скорость</span></h2>
+      <p class="lead lead--center reveal" style="--d:.16s">На всех тарифах: доступ к материалам навсегда, разбор вашей базы и возврат в течение 14 дней.</p>
+    </div>
+
+    <div class="priceGrid">
+      <article class="price reveal tilt">
+        <div class="price__glow"></div>
+        <h3>СТАРТ</h3>
+        <div class="price__amount"><b data-count="12900" data-format="k">12 900</b><span>₽</span></div>
+        <p class="price__desc">Разобраться в Obsidian и собрать первую рабочую базу за неделю.</p>
+        <ul class="price__list">
+          <li>4 модуля · 12 уроков</li>
+          <li>Структура хранилища</li>
+          <li>3 шаблона заметок</li>
+          <li>Чат с куратором 14 дней</li>
+        </ul>
+        <a href="#lead" class="btn btn--glass btn--full">Забронировать</a>
+      </article>
+
+      <article class="price price--hot reveal tilt" style="--d:.08s">
+        <div class="price__glow"></div>
+        <span class="price__badge">Выбирают 8 из 10</span>
+        <h3>ПРАКТИК</h3>
+        <div class="price__amount"><b data-count="24900" data-format="k">24 900</b><span>₽</span></div>
+        <p class="price__desc">Полный курс: от установки до первых опубликованных постов.</p>
+        <ul class="price__list">
+          <li>8 модулей · 28 уроков</li>
+          <li>Всё из «Старта»</li>
+          <li>Связки, MOC, 9 шаблонов</li>
+          <li>AI и фактчекинг</li>
+          <li>4 разбора ваших заметок</li>
+          <li>Чат с куратором 60 дней</li>
+        </ul>
+        <a href="#lead" class="btn btn--primary btn--full magnetic">Забронировать место</a>
+      </article>
+
+      <article class="price reveal tilt" style="--d:.16s">
+        <div class="price__glow"></div>
+        <h3>ПРОФИ</h3>
+        <div class="price__amount"><b data-count="49900" data-format="k">49 900</b><span>₽</span></div>
+        <p class="price__desc">Индивидуальная работа над вашим каналом и ритмом публикаций.</p>
+        <ul class="price__list">
+          <li>Всё из «Практика»</li>
+          <li>8 недель сопровождения</li>
+          <li>Личная стратегия контента</li>
+          <li>2 созвона по 60 минут</li>
+          <li>Разбор портфолио</li>
+          <li>Закрытый клуб на 6 месяцев</li>
+        </ul>
+        <a href="#lead" class="btn btn--glass btn--full">Забронировать</a>
+      </article>
+    </div>
+
+    <p class="fineprint reveal">
+      Не знаете, какой тариф? <a href="#lead">Оставьте заявку</a> — разберём задачу за 15 минут и честно скажем, если вам хватит «Старта».
+    </p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section--glass" id="faq">
+  <div class="wrap wrap--narrow">
+    <div class="head head--center">
+      <span class="chipLabel reveal">Вопросы</span>
+      <h2 class="title reveal" style="--d:.08s">Что спрашивают <span class="grad-text">чаще всего</span></h2>
+    </div>
+
+    <div class="faq" id="faq">
+      <details class="faq__q reveal">
+        <summary>Я никогда не работал с Obsidian. Я справлюсь?<span class="faq__ind"></span></summary>
+        <p>Курс рассчитан ровно на старте. Начинаем с установки и первого файла, всё показываем на экране и повторяем вместе. Из навыков нужен только ноутбук и 4 часа в неделю.</p>
+      </details>
+      <details class="faq__q reveal">
+        <summary>Нужно ли уметь программировать?<span class="faq__ind"></span></summary>
+        <p>Нет. Ни строки кода, ни терминала. Плагины ставим готовыми и объясняем, что они делают, без погружения в настройки разработчика. Всё, что вы будете делать, — обычные файлы с текстом.</p>
+      </details>
+      <details class="faq__q reveal">
+        <summary>У меня уже 300 заметок в другом приложении. Что с ними?<span class="faq__ind"></span></summary>
+        <p>Второй модуль целиком про перенос: импорт markdown, чистку структуры, разбор дублей и восстановление связей. Большая часть привычек пригодится — markdown остаётся markdown в любой системе.</p>
+      </details>
+      <details class="faq__q reveal">
+        <summary>Я не пишу тексты на публику. Мне всё равно?<span class="faq__ind"></span></summary>
+        <p>Нет. Примерно половина потока пишет для себя и работы: конспекты, исследования, клиентские материалы, договорённости. Система работает с любым текстом, а не только с публикациями.</p>
+      </details>
+      <details class="faq__q reveal">
+        <summary>Сколько времени в неделю?<span class="faq__ind"></span></summary>
+        <p>4–5 часов: уроки и практика вместе. Большинство занимается вечерами по 40–60 минут и одним двухчасовым блоком в выходные. Прямые разборы — каждую среду, запись остаётся доступной.</p>
+      </details>
+      <details class="faq__q reveal">
+        <summary>А если не подойдёт?<span class="faq__ind"></span></summary>
+        <p>Возврат в течение 14 дней без объяснения причин. Напишите куратору — вернём полную сумму в течение трёх рабочих дней.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEAD ============ -->
+<section class="section lead" id="lead">
+  <div class="wrap lead__grid">
+    <div class="lead__copy">
+      <span class="chipLabel chipLabel--light reveal">Осталось одно действие</span>
+      <h2 class="title title--lead reveal" style="--d:.08s">Начните сегодня,<br>а не «с понедельника»</h2>
+      <p class="lead__txt reveal" style="--d:.16s">
+        Оставьте контакты — пришлём ссылку на первый урок и мини-разбор: как устроить базу, если у вас уже 200 файлов.
+      </p>
+      <ul class="lead__list reveal" style="--d:.22s">
+        <li>Уроки открываются сразу после оплаты</li>
+        <li>Куратор на связи весь поток</li>
+        <li>14 дней на возврат без вопросов</li>
+        <li>Доступ к материалам навсегда</li>
+      </ul>
+    </div>
+
+    <form class="formCard reveal" style="--d:.2s" id="leadForm" novalidate>
+      <div class="formCard__shine" aria-hidden="true"></div>
+      <h3>Бронирую место на потоке</h3>
+
+      <div class="fRow">
+        <label class="f">
+          <span>Имя</span>
+          <input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name" required>
+        </label>
+        <label class="f">
+          <span>Telegram или телефон</span>
+          <input type="text" name="contact" placeholder="@nickname или +7 900 000-00-00" required>
+        </label>
+      </div>
+
+      <label class="f">
+        <span>Что хотите настроить</span>
+        <textarea name="goal" rows="3" placeholder="Например: перенести 300 заметок и писать посты по вторникам"></textarea>
+      </label>
+
+      <div class="fPlans" role="radiogroup" aria-label="Тариф">
+        <label class="fPlan"><input type="radio" name="plan" value="start" checked><span>Старт · 12 900 ₽</span></label>
+        <label class="fPlan"><input type="radio" name="plan" value="practice"><span>Практик · 24 900 ₽</span></label>
+        <label class="fPlan"><input type="radio" name="plan" value="pro"><span>Профи · 49 900 ₽</span></label>
+      </div>
+
+      <button class="btn btn--primary btn--lg btn--full magnetic" type="submit">Забронировать место</button>
+      <p class="fNote">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
+      <p class="fOk" id="formOk" hidden>Готово! Свяжемся в течение рабочего дня и пришлём доступ к первому уроку.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <a href="#hero" class="logo">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5.6 18.6 12 4.4l6.4 14.2h-3.5L12 11.6l-2.9 7z" fill="currentColor"/></svg>
+        </span>
+        <span class="logo__txt">OBSIDIAN<em>BASE</em></span>
+      </a>
+      <p>Онлайн-школа письменной практики. Учим работать с базой знаний и превращать её в тексты.</p>
+      <div class="footer__social">
+        <a href="#lead" aria-label="Telegram">Telegram</a>
+        <a href="#lead" aria-label="YouTube">YouTube</a>
+        <a href="#lead" aria-label="ВКонтакте">ВКонтакте</a>
+      </div>
+    </div>
+
+    <nav class="footer__col" aria-label="Обучение">
+      <h3>Обучение</h3>
+      <a href="#program">Программа</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#team">Преподаватели</a>
+      <a href="#reviews">Отзывы</a>
+    </nav>
+
+    <nav class="footer__col" aria-label="Помощь">
+      <h3>Помощь</h3>
+      <a href="#faq">FAQ</a>
+      <a href="#problem">О курсе</a>
+      <a href="#lead">Связаться</a>
+    </nav>
+
+    <div class="footer__col">
+      <h3>Контакты</h3>
+      <a href="mailto:hi@obsidianbase.ru">hi@obsidianbase.ru</a>
+      <span>Ежедневно 10:00 — 21:00 МСК</span>
+      <small>ИП Иванов А. А. · ОГРНИП 000000000000000</small>
+    </div>
+  </div>
+
+  <div class="wrap footer__bottom">
+    <span>© 2026 OBSIDIAN BASE</span>
+    <span>Политика конфиденциальности · Публичная оферта</span>
+  </div>
+</footer>
+
+<button class="toTop" id="toTop" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
